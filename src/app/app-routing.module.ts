@@ -5,11 +5,16 @@ import { HelloComponent } from './hello/hello.component';
 import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
   {path: 'home', component: HomeComponent},
   {path: 'hello/:name', component: HelloComponent},
   {path: '**', component: ErrorComponent}
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
